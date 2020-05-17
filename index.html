@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://npmcdn.com/redux/dist/redux.js"></script>
+</head>
+<body>
+<script>
+    //Reducer
+    function counter(state = 0, action) {
+        switch (action.type) {
+            case 'INCREMENT':
+                return state + 1
+            case 'DECREMENT':
+                return state - 1
+            default:
+                return state
+        }
+    }
+    //Create store
+    let store = Redux.createStore(counter);
+
+    //Subscriber
+    store.subscribe(() => console.log('well done - ' + store.getState()));
+    //Dispatch
+    store.dispatch({ type: 'INCREMENT' });
+    store.dispatch({ type: 'DECREMENT' });
+</script>
+</body>
+</html>
